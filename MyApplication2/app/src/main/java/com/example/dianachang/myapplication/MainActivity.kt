@@ -4,15 +4,32 @@ import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.RecyclerView
 import android.view.*
-import android.widget.BaseAdapter
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import com.hackthenorth.pennapps.investorbuddy.DragGroup
 import com.hackthenorth.pennapps.investorbuddy.ItemData
 import com.hackthenorth.pennapps.investorbuddy.ItemFragment
 
 import kotlinx.android.synthetic.main.activity_main.*
+import android.text.Editable
+import android.text.TextWatcher
+import android.support.v7.widget.RecyclerView.ViewHolder
+import android.support.design.widget.CoordinatorLayout.Behavior.setTag
+import android.widget.EditText
+import android.widget.TextView
+import android.view.LayoutInflater
+
+import android.view.View.OnFocusChangeListener
+import android.support.design.widget.CoordinatorLayout.Behavior.setTag
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+
+
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,14 +37,40 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val lv = findViewById<ListView>(R.id.list) as ListView
-        lv.adapter = ListExampleAdapter(this)
+        val lv = findViewById<View>(R.id.list) as ListView
+        lv.adapter = ListExampleAdapter(this, arrayOf("One", "Two", "Three", "Four", "Five", "Six", "Seven",
+                "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen"))
 
+        val portfolio_lv = findViewById<View>(R.id.portfolio_lv) as ListView
+        portfolio_lv.adapter = ListExampleAdapter(this, arrayOf( "1", "2", "3", "4", "5", "6" ,"7","8"))
+        portfolio_lv.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
+
+        }
         fab.setOnClickListener { view ->
             fab.visibility = View.GONE
             findViewById<DragGroup>(R.id.dragGroup).minimize()
         }
+        //button_cancel.visibility = View.GONE
+        //button_save.visibility = View.GONE
 
+        val dropdown = findViewById<Spinner>(R.id.spinner) as Spinner
+        val items = arrayOf("1wk", "2wk", "3wk")
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        dropdown.adapter = adapter
+        dropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
+
+            }
+
+        }
 
 
     }
@@ -46,10 +89,17 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+
     }
-    private class ListExampleAdapter(context: Context) : BaseAdapter() {
-        internal var sList = arrayOf("One", "Two", "Three", "Four", "Five", "Six", "Seven",
-                "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen")
+    fun hidePortfolioComponents(view: View) {
+        fab.visibility = View.VISIBLE
+        dragGroup.hide()
+
+    }
+
+    private class ListExampleAdapter(context: Context, slist: Array<String>) : BaseAdapter() {
+        //internal var sList =
+        internal var sList = slist
         private val mInflator: LayoutInflater
 
         init {

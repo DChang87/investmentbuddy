@@ -13,6 +13,12 @@
 
     </ListView>
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="40dp"
+        android:layout_gravity="top|right"
+        android:layout_height="wrap_content" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -60,34 +66,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Portfolio Items" />
 
-                <FrameLayout
+                <Button
+                    android:id="@+id/button_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Details"
+                    android:layout_gravity="top|right"/>
+
+                <ListView
+                    android:id="@+id/portfolio_lv"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
+                    android:layout_height="300dp"
+                    android:layout_marginBottom="80dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@color/colorPrimaryDark" />
 
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="UNTITLED PORTFOLIO" />
 
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="holding" />
-                    <ListView
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="50dp"
-                        android:layout_height="400dp" />
-                </FrameLayout>
+
 
             </FrameLayout>
+            <Button
+                android:id="@+id/button_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:onClick="hidePortfolioComponents"
+                android:text="Save Portfolio"
+
+                />
+            <Button
+                android:id="@+id/button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:onClick="hidePortfolioComponents"
+                android:text="Cancel"
+
+                />
         </FrameLayout>
 
 
     </com.hackthenorth.pennapps.investorbuddy.DragGroup>
+
 
 
 
