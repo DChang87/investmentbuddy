@@ -1,0 +1,103 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:elevation="0dp"
+    android:gravity="center_vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    tools:context="com.example.dianachang.myapplication.NavigationFragment">
+
+    <RelativeLayout
+        android:id="@+id/navigationWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="NAMEIFY"
+            android:textSize="26dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/navigationSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_alignLeft="@+id/linearLayout"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/linearLayout"
+                android:layout_gravity="right|center_vertical"
+                android:layout_weight="1"
+                android:padding="5dp" />
+
+            <ImageButton
+                android:id="@+id/navigationSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="5dp"
+                android:src="@drawable/ic_search_black_24dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/navigationSearchWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#FFF"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_margin="10dp"
+            android:layout_weight="0"
+            android:padding="5dp"
+            android:src="@drawable/ic_search_black_24dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/navigationSearchField"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:completionHint="Search..."
+            android:padding="10dp"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/navigationSearchCancel"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="5dp"
+            android:src="@drawable/ic_close_black_24dp" />
+    </LinearLayout>
+
+</FrameLayout>

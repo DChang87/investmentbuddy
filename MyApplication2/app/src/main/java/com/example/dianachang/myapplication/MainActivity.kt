@@ -39,10 +39,11 @@ class MainActivity : AppCompatActivity() {
 
         val lv = findViewById<View>(R.id.list) as ListView
         lv.adapter = ListExampleAdapter(this, arrayOf("One", "Two", "Three", "Four", "Five", "Six", "Seven",
-                "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen"))
+                "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
+                "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"))
 
         val portfolio_lv = findViewById<View>(R.id.portfolio_lv) as ListView
-        portfolio_lv.adapter = ListExampleAdapter(this, arrayOf( "1", "2", "3", "4", "5", "6" ,"7","8"))
+        portfolio_lv.adapter = ListExampleAdapter(this, arrayOf( "1", "2", "3", "4", "5", "6" ,"7","8", "9", "10", "11", "12"," 13", "14", "15", "1", "2", "3", "4", "5", "6" ,"7","8", "9", "10", "11", "12"," 13", "14", "15"))
         portfolio_lv.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
 
         }
@@ -52,25 +53,6 @@ class MainActivity : AppCompatActivity() {
         }
         //button_cancel.visibility = View.GONE
         //button_save.visibility = View.GONE
-
-        val dropdown = findViewById<Spinner>(R.id.spinner) as Spinner
-        val items = arrayOf("1wk", "2wk", "3wk")
-
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        dropdown.adapter = adapter
-        dropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-
-            override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
-
-            }
-
-            override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
-
-            }
-
-        }
 
 
     }
