@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context="com.example.dianachang.myapplication.MainActivity">
 
     <ScrollView
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/ic_add_white_24dp" />
 
     <com.hackthenorth.pennapps.investorbuddy.DragGroup
         android:id="@+id/dragGroup"
@@ -93,8 +94,8 @@
                     android:id="@+id/button_edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Edit Details"
-                    android:layout_gravity="top|right"/>
+                    android:layout_gravity="top|right"
+                    android:text="Edit Details" />
 
                 <ListView
                     android:id="@+id/portfolio_lv"
@@ -105,9 +106,8 @@
                     android:background="@color/colorPrimaryDark" />
 
 
-
-
             </FrameLayout>
+
             <Button
                 android:id="@+id/button_save"
                 android:layout_width="wrap_content"
@@ -117,6 +117,7 @@
                 android:text="Save Portfolio"
 
                 />
+
             <Button
                 android:id="@+id/button_cancel"
                 android:layout_width="wrap_content"

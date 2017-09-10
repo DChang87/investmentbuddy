@@ -1,40 +1,46 @@
 package com.example.dianachang.myapplication
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.*
 import com.hackthenorth.pennapps.investorbuddy.DragGroup
-import com.hackthenorth.pennapps.investorbuddy.ItemData
-import com.hackthenorth.pennapps.investorbuddy.ItemFragment
 
 import kotlinx.android.synthetic.main.activity_main.*
-import android.text.Editable
-import android.text.TextWatcher
-import android.support.v7.widget.RecyclerView.ViewHolder
-import android.support.design.widget.CoordinatorLayout.Behavior.setTag
-import android.widget.EditText
 import android.widget.TextView
 import android.view.LayoutInflater
 
-import android.view.View.OnFocusChangeListener
-import android.support.design.widget.CoordinatorLayout.Behavior.setTag
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-
-
-
-
-
+import com.google.firebase.auth.FirebaseAuth
+import android.net.http.HttpResponseCache
+import android.util.Log
+import java.io.File
+import java.io.IOException
 
 
 class MainActivity : AppCompatActivity() {
-
+    val mAuth = FirebaseAuth.getInstance();
+    override fun onStart() {
+        super.onStart()
+        val currentUser = mAuth.getCurrentUser();
+        if (currentUser == null) {
+            val i = Intent(this, LoginActivity::class.java) // Your list's Intent
+            i.flags = Intent.FLAG_ACTIVITY_NO_HISTORY; // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+            startActivity(i);
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        try {
+            val httpCacheDir = File(this.cacheDir, "http")
+            val httpCacheSize = (10 * 1024 * 1024).toLong() // 10 MiB
+            HttpResponseCache.install(httpCacheDir, httpCacheSize)
+        } catch (e: IOException) {
+            Log.i("CACHING", "HTTP response cache installation failed:" + e)
+        }
+
         setContentView(R.layout.activity_main)
 
         val lv = findViewById<View>(R.id.list) as ListView
@@ -49,12 +55,18 @@ class MainActivity : AppCompatActivity() {
         }
         fab.setOnClickListener { view ->
             fab.visibility = View.GONE
+            
             findViewById<DragGroup>(R.id.dragGroup).minimize()
         }
         //button_cancel.visibility = View.GONE
         //button_save.visibility = View.GONE
 
 
+    }
+
+    override fun onStop() {
+        super.onStop()
+        HttpResponseCache.getInstalled()?.flush()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

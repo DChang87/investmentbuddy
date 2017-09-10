@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "532488949079",
+    "firebase_url": "https://investorbuddy-179413.firebaseio.com",
+    "project_id": "investorbuddy-179413",
+    "storage_bucket": "investorbuddy-179413.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532488949079:android:8fe902979dacb09f",
+        "android_client_info": {
+          "package_name": "com.example.dianachang.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532488949079-urm1f1nk4nb9igsrhn61tcg0koucdoi6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dianachang.myapplication",
+            "certificate_hash": "887853024de1b60dccb5c2d7241cc758e87836f8"
+          }
+        },
+        {
+          "client_id": "532488949079-esqpji5s7c0eh6m2h1f6hi10i24ebf2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBDXJ9_sao1aPM5pCFlP0QZV7hTGn9PuQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532488949079-esqpji5s7c0eh6m2h1f6hi10i24ebf2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
