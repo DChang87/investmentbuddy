@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
     private class ListExampleAdapter(context: Context) : BaseAdapter() {
         internal var sList = arrayOf("One", "Two", "Three", "Four", "Five", "Six", "Seven",
-                "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen")
+                "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen")
         private val mInflator: LayoutInflater
 
         init {
